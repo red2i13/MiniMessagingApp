@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Messageboard</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>💬 Mini Messageboard</h1>
+        <p>Share your thoughts with the community</p>
+      </header>
+
+      <div style="text-align: center;">
+        <a href="/new" class="btn-new-message">+ New Message</a>
+      </div>
+
+      <% if (messages.length > 0) { %>
+        <div class="messages-container">
+          <% for (let i = 0; i < messages.length; i++) { %>
+            <div class="message-card">
+              <div class="message-header">
+                <span class="message-user">👤 <%= messages[i].user %></span>
+                <span class="message-date"><%= messages[i].added.toLocaleDateString() %> <%= messages[i].added.toLocaleTimeString() %></span>
+              </div>
+              <p class="message-text"><%= messages[i].text %></p>
+              <div class="message-actions">
+                <a href="/index/<%= i %>" class="btn-open">View Details</a>
+              </div>
+            </div>
+          <% } %>
+        </div>
+      <% } else { %>
+        <div class="empty-state">
+          <p>No messages yet. Be the first to share! 👇</p>
+          <a href="/new" class="btn-new-message">Create First Message</a>
+        </div>
+      <% } %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Details</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <a href="/" class="btn-back">← Back to All Messages</a>
+
+      <div class="message-detail">
+        <h2>Message Details</h2>
+        <div class="detail-user">👤 <%= message.user %></div>
+        <div class="detail-date">📅 <%= message.added.toLocaleDateString() %> at <%= message.added.toLocaleTimeString() %></div>
+        <div class="detail-text">
+          <%= message.text %>
+        </div>
+        <div style="margin-top: 30px; text-align: center;">
+          <a href="/" class="btn-new-message">← Return to Messages</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
